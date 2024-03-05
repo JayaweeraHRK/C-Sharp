@@ -1,0 +1,58 @@
+namespace Bank_App
+{
+    internal class Program
+    {
+        static double balance = 10000.00; 
+        static void Main(string[] args)
+        {
+            Console.WriteLine("      ATM");
+            Console.WriteLine("1. Check Balance");
+            Console.WriteLine("2. Deposit Money");
+            Console.WriteLine("3. Withdraw Money");
+            Console.WriteLine("4. Exit");
+            Console.Write("Select an option: ");
+            int option = Convert.ToInt32(Console.ReadLine());
+
+            switch (option)
+            {
+                case 1: CheckBalance(); break;
+                case 2: Deposit(); break;
+                case 3: Withdraw(); break;
+                case 4: Environment.Exit(0); break;
+                default: Console.WriteLine("Invalid option "); break;
+            }
+        }
+        private static void CheckBalance()
+        {
+            Console.WriteLine("Your current balance is: $" + balance);
+            Console.ReadLine();
+        }
+
+        private static void Deposit()
+        {
+            Console.WriteLine("Enter the amount you want to deposit");
+            double amount = Convert.ToDouble(Console.ReadLine());
+            balance = balance + amount;
+            Console.WriteLine("Deposit successful. Your new account balance is: "+balance);
+            Console.ReadLine();
+        }
+
+        private static void Withdraw()
+        {
+            Console.WriteLine("Enter the amount you want to withdraw");
+            double amount = Convert.ToDouble(Console.ReadLine());
+            if (amount > balance)
+            {
+                Console.WriteLine("Insufficient Balance. Withdraw unsuccessfull.");
+            }
+            else
+            {
+                balance = balance - amount;
+                Console.WriteLine("Withdraw successfull. Your new account balance is: " + balance);
+            }
+            Console.ReadLine();
+        }
+    }
+
+    
+}
