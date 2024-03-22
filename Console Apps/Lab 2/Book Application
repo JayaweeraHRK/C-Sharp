@@ -1,0 +1,30 @@
+using System;
+
+namespace BookApplication
+{
+    class Book
+    {
+        public string Title { get; set; }
+        public string Author { get; set; }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            Book myBook = new Book();
+
+            
+            myBook.Title = "Abbot";
+            myBook.Author = "Walter Scott";
+
+            
+            Console.WriteLine("Book Title: " + myBook.Title);
+            Console.WriteLine("Author: " + myBook.Author);
+
+            
+            Console.ReadKey();
+        }
+    }
+}
